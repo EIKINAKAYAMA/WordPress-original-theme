@@ -31,20 +31,15 @@
     
                 <!-- All setted in function.php by register_my_menus -->
                 <div id="header-main__menu">
-                    <?php 
-                        wp_nav_menu( array( 
-                            'container' => false,
-                            'items_wrap' => '<ul id="menu">%3$s</ul>',
-                        ) ); 
-                    ?>
-                    <?php get_sidebar('second'); ?>
+                    <nav class="smanone clearfix">
+                        <?php 
+                            wp_nav_menu( array( 
+                                'container' => false,
+                                'items_wrap' => '<ul id="menu">%3$s</ul>',
+                            ) ); 
+                        ?>
+                    </nav>
                 </div>
-                <?php 
-                    wp_nav_menu( array( 
-                        'theme_location' => 'SNS-menu' 
-                    ) ); 
-                ?>
-
             </div>
-
+            <?php get_sidebar('second'); ?>
         </header>

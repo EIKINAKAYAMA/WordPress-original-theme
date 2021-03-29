@@ -1,3 +1,6 @@
+ul, li {
+  list-style: none;
+}
 #container {
   display: flex;
   justify-content: space-between;
@@ -11,7 +14,7 @@
   height: 100%;
 }
 #container__left #header-main {
-  margin: 0 10px;
+  margin-right: 40px;
 }
 #container__left #header-main__logo {
   width: 100%;
@@ -30,41 +33,35 @@
   margin-right: 5px;
 }
 #container__left #header-main__menu {
-  padding: 20px 0px;
-  width: 100%;
-  /* menu */
+  width: 70%;
+  /* menu parents*/
 }
-#container__left #header-main__menu .menu-item {
-  line-height: 40px;
+#container__left #header-main__menu ul {
+  list-style: none;
+}
+#container__left #header-main__menu ul li {
   position: relative;
-  background-color: gray;
-  display: block;
-  margin-bottom: 5px;
 }
-#container__left #header-main__menu .menu-item a {
-  color: black;
+#container__left #header-main__menu ul a {
   text-decoration: none;
+  /* menu children*/
 }
-#container__left #header-main__menu .menu-item .sub-menu {
-  display: none;
-}
-#container__left #header-main__menu .menu-item:after {
-  line-height: 40px;
-  content: "";
+#container__left #header-main__menu #menu ul {
+  padding: 0;
+  top: 0;
+  left: 100%;
+  visibility: hidden;
   position: absolute;
-  right: 25px;
-  top: 38%;
-  transition: all 0.2s ease-in-out;
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-top: solid 2px #fff;
-  border-right: solid 2px #fff;
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
 }
-#container__left #header-main__menu .menu-item.open:after {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: 45%;
+#container__left #header-main__menu #menu ul li:first-child > a:after {
+  content: '';
+  position: absolute;
+}
+#container__left #header-main__menu #menu ul a {
+  width: 100px;
+  display: block;
+}
+#container__left #header-main__menu #menu li:hover > ul {
+  opacity: 1;
+  visibility: visible;
 }

@@ -1,7 +1,9 @@
 // definition of values
 $manu-line-height : 40px;
 
-
+ul, li{
+    list-style: none;
+}
 
 #container{
     display: flex;
@@ -16,7 +18,7 @@ $manu-line-height : 40px;
         width: 30%;
         height: 100%;
         #header-main{
-            margin: 0 10px;
+            margin-right: 40px;
 
             &__logo{
                 width: 100%;
@@ -39,44 +41,43 @@ $manu-line-height : 40px;
             }
 
             &__menu{
-                padding: 20px 0px;
-                width: 100%;
-                /* menu */
-                .menu-item {
-                    line-height: $manu-line-height;
-                    position: relative;
-                    background-color: gray;
-                    display: block;
-                    margin-bottom: 5px;
+                width: 70%;
+                
+                /* menu parents*/
+                ul {
+                    list-style: none;
+                    li {
+                        position: relative;
+                    }
                     a {
-                        color: black;
                         text-decoration: none;
                     }
-                    .sub-menu {
-                      display: none;
+                }              
+                
+                /* menu children*/
+                #menu ul {
+                    padding: 0;
+                    top: 0;
+                    left: 100%;
+                    visibility: hidden;
+                    position: absolute; 
+                    
+                    li:first-child > a:after {
+                        content: '';
+                        position: absolute;
+                    }
+
+                    a {
+                        width: 100px;
+                        display: block;
                     }
                 }
-                .menu-item:after {
-                    line-height: $manu-line-height;
-                    content: "";
-                    position: absolute;
-                    right: 25px;
-                    top: 38%;
-                    transition: all 0.2s ease-in-out;
-                    display: block;
-                    width: 8px;
-                    height: 8px;
-                    border-top: solid 2px #fff;
-                    border-right: solid 2px #fff;
-                    -webkit-transform: rotate(135deg);
-                    transform: rotate(135deg);
+                
+                #menu li:hover > ul {
+                    opacity: 1;
+                    visibility: visible;
                 }
-
-                .menu-item.open:after {
-                    -webkit-transform: rotate(-45deg);
-                    transform: rotate(-45deg);
-                    top: 45%;
-                }
+                
             }
         }
     }
